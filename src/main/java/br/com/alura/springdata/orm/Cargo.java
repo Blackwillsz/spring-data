@@ -1,4 +1,4 @@
-package orm;
+package br.com.alura.springdata.orm;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +18,7 @@ public class Cargo {
 	public Integer getId() {
 		return id;
 	}
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}

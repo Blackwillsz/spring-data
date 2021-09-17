@@ -1,16 +1,30 @@
-package be.com.alura.apring.data;
+package br.com.alura.springdata;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
 
-@EnableAutoConfiguration
-@ComponentScan
-public class ApringDataApplication {
+import br.com.alura.springdata.orm.Cargo;
+import repository.CargoRepository;
+
+
+@SpringBootApplication
+public class SpringDataApplication implements CommandLineRunner{
+	
+	private final CargoRepository repository;
+	
+	public SpringDataApplication(CargoRepository repository) {
+		this.repository = repository;
+	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApringDataApplication.class, args);
+		SpringApplication.run(SpringDataApplication.class, args);
+	}
+	
+	@Override
+	public void run(String... args) throws Exception{
+		Cargo cargo = new Cargo();
+		cargo.setDescricao("DESENVOLVEDOR DE SOFTWARE");
 	}
 
 }
